@@ -1,0 +1,11 @@
+begin
+    mek a = 10
+    mek b = 20
+    fling("Before reassignment:")
+    fling(a + b)
+
+    set a to 15
+    set b to a * 2
+    fling("After reassignment:")
+    fling(a + b)
+done

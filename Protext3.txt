@@ -1,0 +1,17 @@
+begin
+    mek score = 75
+
+    if score >= 90 begin
+        fling("Grade: A")
+    done else begin
+        if score >= 80 begin
+            fling("Grade: B")
+        done else begin
+            if score >= 70 begin
+                fling("Grade: C")
+            done else begin
+                fling("Grade: F")
+            done
+        done
+    done
+done

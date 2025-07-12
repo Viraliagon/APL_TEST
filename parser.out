@@ -1,0 +1,1897 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    INCREASE
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> BEGIN stmt_list DONE
+Rule 2     stmt_list -> stmt stmt_list
+Rule 3     stmt_list -> <empty>
+Rule 4     stmt -> assignment
+Rule 5     stmt -> print_stmt
+Rule 6     stmt -> if_stmt
+Rule 7     stmt -> for_loop
+Rule 8     stmt -> natural_stmt
+Rule 9     assignment -> MEK ID EQ expr
+Rule 10    print_stmt -> FLING LPAREN STRING RPAREN
+Rule 11    print_stmt -> FLING LPAREN expr RPAREN
+Rule 12    if_stmt -> IF expr BEGIN stmt_list DONE
+Rule 13    if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE
+Rule 14    for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list DONE
+Rule 15    natural_stmt -> SET ID TO expr
+Rule 16    expr -> expr PLUS expr
+Rule 17    expr -> expr MINUS expr
+Rule 18    expr -> expr MUL expr
+Rule 19    expr -> expr DIV expr
+Rule 20    expr -> expr GT expr
+Rule 21    expr -> expr LT expr
+Rule 22    expr -> expr GE expr
+Rule 23    expr -> expr LE expr
+Rule 24    expr -> expr EQEQ expr
+Rule 25    expr -> expr NEQ expr
+Rule 26    expr -> LPAREN expr RPAREN
+Rule 27    expr -> NUMBER
+Rule 28    expr -> STRING
+Rule 29    expr -> ID
+
+Terminals, with rules where they appear
+
+BEGIN                : 1 12 13 13 14
+DIV                  : 19
+DONE                 : 1 12 13 13 14
+ELSE                 : 13
+EQ                   : 9 14
+EQEQ                 : 24
+FLING                : 10 11
+FOR                  : 14
+GE                   : 22
+GT                   : 20
+ID                   : 9 14 15 29
+IF                   : 12 13
+INCREASE             : 
+LE                   : 23
+LPAREN               : 10 11 26
+LT                   : 21
+MEK                  : 9
+MINUS                : 17
+MUL                  : 18
+NEQ                  : 25
+NUMBER               : 27
+PLUS                 : 16
+RPAREN               : 10 11 26
+SET                  : 15
+STRING               : 10 28
+TO                   : 14 15
+error                : 
+
+Nonterminals, with rules where they appear
+
+assignment           : 4
+expr                 : 9 11 12 13 14 14 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 25 26
+for_loop             : 7
+if_stmt              : 6
+natural_stmt         : 8
+print_stmt           : 5
+program              : 0
+stmt                 : 2
+stmt_list            : 1 2 12 13 13 14
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . BEGIN stmt_list DONE
+
+    BEGIN           shift and go to state 2
+
+    program                        shift and go to state 1
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> BEGIN . stmt_list DONE
+    (2) stmt_list -> . stmt stmt_list
+    (3) stmt_list -> .
+    (4) stmt -> . assignment
+    (5) stmt -> . print_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . for_loop
+    (8) stmt -> . natural_stmt
+    (9) assignment -> . MEK ID EQ expr
+    (10) print_stmt -> . FLING LPAREN STRING RPAREN
+    (11) print_stmt -> . FLING LPAREN expr RPAREN
+    (12) if_stmt -> . IF expr BEGIN stmt_list DONE
+    (13) if_stmt -> . IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE
+    (14) for_loop -> . FOR ID EQ expr TO expr BEGIN stmt_list DONE
+    (15) natural_stmt -> . SET ID TO expr
+
+    DONE            reduce using rule 3 (stmt_list -> .)
+    MEK             shift and go to state 10
+    FLING           shift and go to state 11
+    IF              shift and go to state 12
+    FOR             shift and go to state 13
+    SET             shift and go to state 14
+
+    stmt_list                      shift and go to state 3
+    stmt                           shift and go to state 4
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    for_loop                       shift and go to state 8
+    natural_stmt                   shift and go to state 9
+
+state 3
+
+    (1) program -> BEGIN stmt_list . DONE
+
+    DONE            shift and go to state 15
+
+
+state 4
+
+    (2) stmt_list -> stmt . stmt_list
+    (2) stmt_list -> . stmt stmt_list
+    (3) stmt_list -> .
+    (4) stmt -> . assignment
+    (5) stmt -> . print_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . for_loop
+    (8) stmt -> . natural_stmt
+    (9) assignment -> . MEK ID EQ expr
+    (10) print_stmt -> . FLING LPAREN STRING RPAREN
+    (11) print_stmt -> . FLING LPAREN expr RPAREN
+    (12) if_stmt -> . IF expr BEGIN stmt_list DONE
+    (13) if_stmt -> . IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE
+    (14) for_loop -> . FOR ID EQ expr TO expr BEGIN stmt_list DONE
+    (15) natural_stmt -> . SET ID TO expr
+
+    DONE            reduce using rule 3 (stmt_list -> .)
+    MEK             shift and go to state 10
+    FLING           shift and go to state 11
+    IF              shift and go to state 12
+    FOR             shift and go to state 13
+    SET             shift and go to state 14
+
+    stmt                           shift and go to state 4
+    stmt_list                      shift and go to state 16
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    for_loop                       shift and go to state 8
+    natural_stmt                   shift and go to state 9
+
+state 5
+
+    (4) stmt -> assignment .
+
+    MEK             reduce using rule 4 (stmt -> assignment .)
+    FLING           reduce using rule 4 (stmt -> assignment .)
+    IF              reduce using rule 4 (stmt -> assignment .)
+    FOR             reduce using rule 4 (stmt -> assignment .)
+    SET             reduce using rule 4 (stmt -> assignment .)
+    DONE            reduce using rule 4 (stmt -> assignment .)
+
+
+state 6
+
+    (5) stmt -> print_stmt .
+
+    MEK             reduce using rule 5 (stmt -> print_stmt .)
+    FLING           reduce using rule 5 (stmt -> print_stmt .)
+    IF              reduce using rule 5 (stmt -> print_stmt .)
+    FOR             reduce using rule 5 (stmt -> print_stmt .)
+    SET             reduce using rule 5 (stmt -> print_stmt .)
+    DONE            reduce using rule 5 (stmt -> print_stmt .)
+
+
+state 7
+
+    (6) stmt -> if_stmt .
+
+    MEK             reduce using rule 6 (stmt -> if_stmt .)
+    FLING           reduce using rule 6 (stmt -> if_stmt .)
+    IF              reduce using rule 6 (stmt -> if_stmt .)
+    FOR             reduce using rule 6 (stmt -> if_stmt .)
+    SET             reduce using rule 6 (stmt -> if_stmt .)
+    DONE            reduce using rule 6 (stmt -> if_stmt .)
+
+
+state 8
+
+    (7) stmt -> for_loop .
+
+    MEK             reduce using rule 7 (stmt -> for_loop .)
+    FLING           reduce using rule 7 (stmt -> for_loop .)
+    IF              reduce using rule 7 (stmt -> for_loop .)
+    FOR             reduce using rule 7 (stmt -> for_loop .)
+    SET             reduce using rule 7 (stmt -> for_loop .)
+    DONE            reduce using rule 7 (stmt -> for_loop .)
+
+
+state 9
+
+    (8) stmt -> natural_stmt .
+
+    MEK             reduce using rule 8 (stmt -> natural_stmt .)
+    FLING           reduce using rule 8 (stmt -> natural_stmt .)
+    IF              reduce using rule 8 (stmt -> natural_stmt .)
+    FOR             reduce using rule 8 (stmt -> natural_stmt .)
+    SET             reduce using rule 8 (stmt -> natural_stmt .)
+    DONE            reduce using rule 8 (stmt -> natural_stmt .)
+
+
+state 10
+
+    (9) assignment -> MEK . ID EQ expr
+
+    ID              shift and go to state 17
+
+
+state 11
+
+    (10) print_stmt -> FLING . LPAREN STRING RPAREN
+    (11) print_stmt -> FLING . LPAREN expr RPAREN
+
+    LPAREN          shift and go to state 18
+
+
+state 12
+
+    (12) if_stmt -> IF . expr BEGIN stmt_list DONE
+    (13) if_stmt -> IF . expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 19
+
+state 13
+
+    (14) for_loop -> FOR . ID EQ expr TO expr BEGIN stmt_list DONE
+
+    ID              shift and go to state 24
+
+
+state 14
+
+    (15) natural_stmt -> SET . ID TO expr
+
+    ID              shift and go to state 25
+
+
+state 15
+
+    (1) program -> BEGIN stmt_list DONE .
+
+    $end            reduce using rule 1 (program -> BEGIN stmt_list DONE .)
+
+
+state 16
+
+    (2) stmt_list -> stmt stmt_list .
+
+    DONE            reduce using rule 2 (stmt_list -> stmt stmt_list .)
+
+
+state 17
+
+    (9) assignment -> MEK ID . EQ expr
+
+    EQ              shift and go to state 26
+
+
+state 18
+
+    (10) print_stmt -> FLING LPAREN . STRING RPAREN
+    (11) print_stmt -> FLING LPAREN . expr RPAREN
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    STRING          shift and go to state 27
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 28
+
+state 19
+
+    (12) if_stmt -> IF expr . BEGIN stmt_list DONE
+    (13) if_stmt -> IF expr . BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+    BEGIN           shift and go to state 29
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+
+state 20
+
+    (26) expr -> LPAREN . expr RPAREN
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 40
+
+state 21
+
+    (27) expr -> NUMBER .
+
+    BEGIN           reduce using rule 27 (expr -> NUMBER .)
+    PLUS            reduce using rule 27 (expr -> NUMBER .)
+    MINUS           reduce using rule 27 (expr -> NUMBER .)
+    MUL             reduce using rule 27 (expr -> NUMBER .)
+    DIV             reduce using rule 27 (expr -> NUMBER .)
+    GT              reduce using rule 27 (expr -> NUMBER .)
+    LT              reduce using rule 27 (expr -> NUMBER .)
+    GE              reduce using rule 27 (expr -> NUMBER .)
+    LE              reduce using rule 27 (expr -> NUMBER .)
+    EQEQ            reduce using rule 27 (expr -> NUMBER .)
+    NEQ             reduce using rule 27 (expr -> NUMBER .)
+    RPAREN          reduce using rule 27 (expr -> NUMBER .)
+    MEK             reduce using rule 27 (expr -> NUMBER .)
+    FLING           reduce using rule 27 (expr -> NUMBER .)
+    IF              reduce using rule 27 (expr -> NUMBER .)
+    FOR             reduce using rule 27 (expr -> NUMBER .)
+    SET             reduce using rule 27 (expr -> NUMBER .)
+    DONE            reduce using rule 27 (expr -> NUMBER .)
+    TO              reduce using rule 27 (expr -> NUMBER .)
+
+
+state 22
+
+    (28) expr -> STRING .
+
+    BEGIN           reduce using rule 28 (expr -> STRING .)
+    PLUS            reduce using rule 28 (expr -> STRING .)
+    MINUS           reduce using rule 28 (expr -> STRING .)
+    MUL             reduce using rule 28 (expr -> STRING .)
+    DIV             reduce using rule 28 (expr -> STRING .)
+    GT              reduce using rule 28 (expr -> STRING .)
+    LT              reduce using rule 28 (expr -> STRING .)
+    GE              reduce using rule 28 (expr -> STRING .)
+    LE              reduce using rule 28 (expr -> STRING .)
+    EQEQ            reduce using rule 28 (expr -> STRING .)
+    NEQ             reduce using rule 28 (expr -> STRING .)
+    RPAREN          reduce using rule 28 (expr -> STRING .)
+    MEK             reduce using rule 28 (expr -> STRING .)
+    FLING           reduce using rule 28 (expr -> STRING .)
+    IF              reduce using rule 28 (expr -> STRING .)
+    FOR             reduce using rule 28 (expr -> STRING .)
+    SET             reduce using rule 28 (expr -> STRING .)
+    DONE            reduce using rule 28 (expr -> STRING .)
+    TO              reduce using rule 28 (expr -> STRING .)
+
+
+state 23
+
+    (29) expr -> ID .
+
+    BEGIN           reduce using rule 29 (expr -> ID .)
+    PLUS            reduce using rule 29 (expr -> ID .)
+    MINUS           reduce using rule 29 (expr -> ID .)
+    MUL             reduce using rule 29 (expr -> ID .)
+    DIV             reduce using rule 29 (expr -> ID .)
+    GT              reduce using rule 29 (expr -> ID .)
+    LT              reduce using rule 29 (expr -> ID .)
+    GE              reduce using rule 29 (expr -> ID .)
+    LE              reduce using rule 29 (expr -> ID .)
+    EQEQ            reduce using rule 29 (expr -> ID .)
+    NEQ             reduce using rule 29 (expr -> ID .)
+    RPAREN          reduce using rule 29 (expr -> ID .)
+    MEK             reduce using rule 29 (expr -> ID .)
+    FLING           reduce using rule 29 (expr -> ID .)
+    IF              reduce using rule 29 (expr -> ID .)
+    FOR             reduce using rule 29 (expr -> ID .)
+    SET             reduce using rule 29 (expr -> ID .)
+    DONE            reduce using rule 29 (expr -> ID .)
+    TO              reduce using rule 29 (expr -> ID .)
+
+
+state 24
+
+    (14) for_loop -> FOR ID . EQ expr TO expr BEGIN stmt_list DONE
+
+    EQ              shift and go to state 41
+
+
+state 25
+
+    (15) natural_stmt -> SET ID . TO expr
+
+    TO              shift and go to state 42
+
+
+state 26
+
+    (9) assignment -> MEK ID EQ . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 43
+
+state 27
+
+    (10) print_stmt -> FLING LPAREN STRING . RPAREN
+    (28) expr -> STRING .
+
+  ! shift/reduce conflict for RPAREN resolved as shift
+    RPAREN          shift and go to state 44
+    PLUS            reduce using rule 28 (expr -> STRING .)
+    MINUS           reduce using rule 28 (expr -> STRING .)
+    MUL             reduce using rule 28 (expr -> STRING .)
+    DIV             reduce using rule 28 (expr -> STRING .)
+    GT              reduce using rule 28 (expr -> STRING .)
+    LT              reduce using rule 28 (expr -> STRING .)
+    GE              reduce using rule 28 (expr -> STRING .)
+    LE              reduce using rule 28 (expr -> STRING .)
+    EQEQ            reduce using rule 28 (expr -> STRING .)
+    NEQ             reduce using rule 28 (expr -> STRING .)
+
+  ! RPAREN          [ reduce using rule 28 (expr -> STRING .) ]
+
+
+state 28
+
+    (11) print_stmt -> FLING LPAREN expr . RPAREN
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+    RPAREN          shift and go to state 45
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+
+state 29
+
+    (12) if_stmt -> IF expr BEGIN . stmt_list DONE
+    (13) if_stmt -> IF expr BEGIN . stmt_list DONE ELSE BEGIN stmt_list DONE
+    (2) stmt_list -> . stmt stmt_list
+    (3) stmt_list -> .
+    (4) stmt -> . assignment
+    (5) stmt -> . print_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . for_loop
+    (8) stmt -> . natural_stmt
+    (9) assignment -> . MEK ID EQ expr
+    (10) print_stmt -> . FLING LPAREN STRING RPAREN
+    (11) print_stmt -> . FLING LPAREN expr RPAREN
+    (12) if_stmt -> . IF expr BEGIN stmt_list DONE
+    (13) if_stmt -> . IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE
+    (14) for_loop -> . FOR ID EQ expr TO expr BEGIN stmt_list DONE
+    (15) natural_stmt -> . SET ID TO expr
+
+    DONE            reduce using rule 3 (stmt_list -> .)
+    MEK             shift and go to state 10
+    FLING           shift and go to state 11
+    IF              shift and go to state 12
+    FOR             shift and go to state 13
+    SET             shift and go to state 14
+
+    stmt_list                      shift and go to state 46
+    stmt                           shift and go to state 4
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    for_loop                       shift and go to state 8
+    natural_stmt                   shift and go to state 9
+
+state 30
+
+    (16) expr -> expr PLUS . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 47
+
+state 31
+
+    (17) expr -> expr MINUS . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 48
+
+state 32
+
+    (18) expr -> expr MUL . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 49
+
+state 33
+
+    (19) expr -> expr DIV . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 50
+
+state 34
+
+    (20) expr -> expr GT . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 51
+
+state 35
+
+    (21) expr -> expr LT . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 52
+
+state 36
+
+    (22) expr -> expr GE . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 53
+
+state 37
+
+    (23) expr -> expr LE . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 54
+
+state 38
+
+    (24) expr -> expr EQEQ . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 55
+
+state 39
+
+    (25) expr -> expr NEQ . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 56
+
+state 40
+
+    (26) expr -> LPAREN expr . RPAREN
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+    RPAREN          shift and go to state 57
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+
+state 41
+
+    (14) for_loop -> FOR ID EQ . expr TO expr BEGIN stmt_list DONE
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 58
+
+state 42
+
+    (15) natural_stmt -> SET ID TO . expr
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 59
+
+state 43
+
+    (9) assignment -> MEK ID EQ expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+    MEK             reduce using rule 9 (assignment -> MEK ID EQ expr .)
+    FLING           reduce using rule 9 (assignment -> MEK ID EQ expr .)
+    IF              reduce using rule 9 (assignment -> MEK ID EQ expr .)
+    FOR             reduce using rule 9 (assignment -> MEK ID EQ expr .)
+    SET             reduce using rule 9 (assignment -> MEK ID EQ expr .)
+    DONE            reduce using rule 9 (assignment -> MEK ID EQ expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+
+state 44
+
+    (10) print_stmt -> FLING LPAREN STRING RPAREN .
+
+    MEK             reduce using rule 10 (print_stmt -> FLING LPAREN STRING RPAREN .)
+    FLING           reduce using rule 10 (print_stmt -> FLING LPAREN STRING RPAREN .)
+    IF              reduce using rule 10 (print_stmt -> FLING LPAREN STRING RPAREN .)
+    FOR             reduce using rule 10 (print_stmt -> FLING LPAREN STRING RPAREN .)
+    SET             reduce using rule 10 (print_stmt -> FLING LPAREN STRING RPAREN .)
+    DONE            reduce using rule 10 (print_stmt -> FLING LPAREN STRING RPAREN .)
+
+
+state 45
+
+    (11) print_stmt -> FLING LPAREN expr RPAREN .
+
+    MEK             reduce using rule 11 (print_stmt -> FLING LPAREN expr RPAREN .)
+    FLING           reduce using rule 11 (print_stmt -> FLING LPAREN expr RPAREN .)
+    IF              reduce using rule 11 (print_stmt -> FLING LPAREN expr RPAREN .)
+    FOR             reduce using rule 11 (print_stmt -> FLING LPAREN expr RPAREN .)
+    SET             reduce using rule 11 (print_stmt -> FLING LPAREN expr RPAREN .)
+    DONE            reduce using rule 11 (print_stmt -> FLING LPAREN expr RPAREN .)
+
+
+state 46
+
+    (12) if_stmt -> IF expr BEGIN stmt_list . DONE
+    (13) if_stmt -> IF expr BEGIN stmt_list . DONE ELSE BEGIN stmt_list DONE
+
+    DONE            shift and go to state 60
+
+
+state 47
+
+    (16) expr -> expr PLUS expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 16 (expr -> expr PLUS expr .)
+    RPAREN          reduce using rule 16 (expr -> expr PLUS expr .)
+    MEK             reduce using rule 16 (expr -> expr PLUS expr .)
+    FLING           reduce using rule 16 (expr -> expr PLUS expr .)
+    IF              reduce using rule 16 (expr -> expr PLUS expr .)
+    FOR             reduce using rule 16 (expr -> expr PLUS expr .)
+    SET             reduce using rule 16 (expr -> expr PLUS expr .)
+    DONE            reduce using rule 16 (expr -> expr PLUS expr .)
+    TO              reduce using rule 16 (expr -> expr PLUS expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! MINUS           [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! MUL             [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! DIV             [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! GT              [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! LT              [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! GE              [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! LE              [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! EQEQ            [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+  ! NEQ             [ reduce using rule 16 (expr -> expr PLUS expr .) ]
+
+
+state 48
+
+    (17) expr -> expr MINUS expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 17 (expr -> expr MINUS expr .)
+    RPAREN          reduce using rule 17 (expr -> expr MINUS expr .)
+    MEK             reduce using rule 17 (expr -> expr MINUS expr .)
+    FLING           reduce using rule 17 (expr -> expr MINUS expr .)
+    IF              reduce using rule 17 (expr -> expr MINUS expr .)
+    FOR             reduce using rule 17 (expr -> expr MINUS expr .)
+    SET             reduce using rule 17 (expr -> expr MINUS expr .)
+    DONE            reduce using rule 17 (expr -> expr MINUS expr .)
+    TO              reduce using rule 17 (expr -> expr MINUS expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! MINUS           [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! MUL             [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! DIV             [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! GT              [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! LT              [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! GE              [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! LE              [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! EQEQ            [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+  ! NEQ             [ reduce using rule 17 (expr -> expr MINUS expr .) ]
+
+
+state 49
+
+    (18) expr -> expr MUL expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 18 (expr -> expr MUL expr .)
+    RPAREN          reduce using rule 18 (expr -> expr MUL expr .)
+    MEK             reduce using rule 18 (expr -> expr MUL expr .)
+    FLING           reduce using rule 18 (expr -> expr MUL expr .)
+    IF              reduce using rule 18 (expr -> expr MUL expr .)
+    FOR             reduce using rule 18 (expr -> expr MUL expr .)
+    SET             reduce using rule 18 (expr -> expr MUL expr .)
+    DONE            reduce using rule 18 (expr -> expr MUL expr .)
+    TO              reduce using rule 18 (expr -> expr MUL expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! MINUS           [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! MUL             [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! DIV             [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! GT              [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! LT              [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! GE              [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! LE              [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! EQEQ            [ reduce using rule 18 (expr -> expr MUL expr .) ]
+  ! NEQ             [ reduce using rule 18 (expr -> expr MUL expr .) ]
+
+
+state 50
+
+    (19) expr -> expr DIV expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 19 (expr -> expr DIV expr .)
+    RPAREN          reduce using rule 19 (expr -> expr DIV expr .)
+    MEK             reduce using rule 19 (expr -> expr DIV expr .)
+    FLING           reduce using rule 19 (expr -> expr DIV expr .)
+    IF              reduce using rule 19 (expr -> expr DIV expr .)
+    FOR             reduce using rule 19 (expr -> expr DIV expr .)
+    SET             reduce using rule 19 (expr -> expr DIV expr .)
+    DONE            reduce using rule 19 (expr -> expr DIV expr .)
+    TO              reduce using rule 19 (expr -> expr DIV expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! MINUS           [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! MUL             [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! DIV             [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! GT              [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! LT              [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! GE              [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! LE              [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! EQEQ            [ reduce using rule 19 (expr -> expr DIV expr .) ]
+  ! NEQ             [ reduce using rule 19 (expr -> expr DIV expr .) ]
+
+
+state 51
+
+    (20) expr -> expr GT expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 20 (expr -> expr GT expr .)
+    RPAREN          reduce using rule 20 (expr -> expr GT expr .)
+    MEK             reduce using rule 20 (expr -> expr GT expr .)
+    FLING           reduce using rule 20 (expr -> expr GT expr .)
+    IF              reduce using rule 20 (expr -> expr GT expr .)
+    FOR             reduce using rule 20 (expr -> expr GT expr .)
+    SET             reduce using rule 20 (expr -> expr GT expr .)
+    DONE            reduce using rule 20 (expr -> expr GT expr .)
+    TO              reduce using rule 20 (expr -> expr GT expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! MINUS           [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! MUL             [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! DIV             [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! GT              [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! LT              [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! GE              [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! LE              [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! EQEQ            [ reduce using rule 20 (expr -> expr GT expr .) ]
+  ! NEQ             [ reduce using rule 20 (expr -> expr GT expr .) ]
+
+
+state 52
+
+    (21) expr -> expr LT expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 21 (expr -> expr LT expr .)
+    RPAREN          reduce using rule 21 (expr -> expr LT expr .)
+    MEK             reduce using rule 21 (expr -> expr LT expr .)
+    FLING           reduce using rule 21 (expr -> expr LT expr .)
+    IF              reduce using rule 21 (expr -> expr LT expr .)
+    FOR             reduce using rule 21 (expr -> expr LT expr .)
+    SET             reduce using rule 21 (expr -> expr LT expr .)
+    DONE            reduce using rule 21 (expr -> expr LT expr .)
+    TO              reduce using rule 21 (expr -> expr LT expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! MINUS           [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! MUL             [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! DIV             [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! GT              [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! LT              [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! GE              [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! LE              [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! EQEQ            [ reduce using rule 21 (expr -> expr LT expr .) ]
+  ! NEQ             [ reduce using rule 21 (expr -> expr LT expr .) ]
+
+
+state 53
+
+    (22) expr -> expr GE expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 22 (expr -> expr GE expr .)
+    RPAREN          reduce using rule 22 (expr -> expr GE expr .)
+    MEK             reduce using rule 22 (expr -> expr GE expr .)
+    FLING           reduce using rule 22 (expr -> expr GE expr .)
+    IF              reduce using rule 22 (expr -> expr GE expr .)
+    FOR             reduce using rule 22 (expr -> expr GE expr .)
+    SET             reduce using rule 22 (expr -> expr GE expr .)
+    DONE            reduce using rule 22 (expr -> expr GE expr .)
+    TO              reduce using rule 22 (expr -> expr GE expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! MINUS           [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! MUL             [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! DIV             [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! GT              [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! LT              [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! GE              [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! LE              [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! EQEQ            [ reduce using rule 22 (expr -> expr GE expr .) ]
+  ! NEQ             [ reduce using rule 22 (expr -> expr GE expr .) ]
+
+
+state 54
+
+    (23) expr -> expr LE expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 23 (expr -> expr LE expr .)
+    RPAREN          reduce using rule 23 (expr -> expr LE expr .)
+    MEK             reduce using rule 23 (expr -> expr LE expr .)
+    FLING           reduce using rule 23 (expr -> expr LE expr .)
+    IF              reduce using rule 23 (expr -> expr LE expr .)
+    FOR             reduce using rule 23 (expr -> expr LE expr .)
+    SET             reduce using rule 23 (expr -> expr LE expr .)
+    DONE            reduce using rule 23 (expr -> expr LE expr .)
+    TO              reduce using rule 23 (expr -> expr LE expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! MINUS           [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! MUL             [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! DIV             [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! GT              [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! LT              [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! GE              [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! LE              [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! EQEQ            [ reduce using rule 23 (expr -> expr LE expr .) ]
+  ! NEQ             [ reduce using rule 23 (expr -> expr LE expr .) ]
+
+
+state 55
+
+    (24) expr -> expr EQEQ expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 24 (expr -> expr EQEQ expr .)
+    RPAREN          reduce using rule 24 (expr -> expr EQEQ expr .)
+    MEK             reduce using rule 24 (expr -> expr EQEQ expr .)
+    FLING           reduce using rule 24 (expr -> expr EQEQ expr .)
+    IF              reduce using rule 24 (expr -> expr EQEQ expr .)
+    FOR             reduce using rule 24 (expr -> expr EQEQ expr .)
+    SET             reduce using rule 24 (expr -> expr EQEQ expr .)
+    DONE            reduce using rule 24 (expr -> expr EQEQ expr .)
+    TO              reduce using rule 24 (expr -> expr EQEQ expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! MINUS           [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! MUL             [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! DIV             [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! GT              [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! LT              [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! GE              [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! LE              [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! EQEQ            [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+  ! NEQ             [ reduce using rule 24 (expr -> expr EQEQ expr .) ]
+
+
+state 56
+
+    (25) expr -> expr NEQ expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+  ! shift/reduce conflict for NEQ resolved as shift
+    BEGIN           reduce using rule 25 (expr -> expr NEQ expr .)
+    RPAREN          reduce using rule 25 (expr -> expr NEQ expr .)
+    MEK             reduce using rule 25 (expr -> expr NEQ expr .)
+    FLING           reduce using rule 25 (expr -> expr NEQ expr .)
+    IF              reduce using rule 25 (expr -> expr NEQ expr .)
+    FOR             reduce using rule 25 (expr -> expr NEQ expr .)
+    SET             reduce using rule 25 (expr -> expr NEQ expr .)
+    DONE            reduce using rule 25 (expr -> expr NEQ expr .)
+    TO              reduce using rule 25 (expr -> expr NEQ expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+  ! PLUS            [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! MINUS           [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! MUL             [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! DIV             [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! GT              [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! LT              [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! GE              [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! LE              [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! EQEQ            [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+  ! NEQ             [ reduce using rule 25 (expr -> expr NEQ expr .) ]
+
+
+state 57
+
+    (26) expr -> LPAREN expr RPAREN .
+
+    BEGIN           reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    PLUS            reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    MINUS           reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    MUL             reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    DIV             reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    GT              reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    LT              reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    GE              reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    LE              reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    EQEQ            reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    NEQ             reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    RPAREN          reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    MEK             reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    FLING           reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    IF              reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    FOR             reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    SET             reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    DONE            reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+    TO              reduce using rule 26 (expr -> LPAREN expr RPAREN .)
+
+
+state 58
+
+    (14) for_loop -> FOR ID EQ expr . TO expr BEGIN stmt_list DONE
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+    TO              shift and go to state 61
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+
+state 59
+
+    (15) natural_stmt -> SET ID TO expr .
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+    MEK             reduce using rule 15 (natural_stmt -> SET ID TO expr .)
+    FLING           reduce using rule 15 (natural_stmt -> SET ID TO expr .)
+    IF              reduce using rule 15 (natural_stmt -> SET ID TO expr .)
+    FOR             reduce using rule 15 (natural_stmt -> SET ID TO expr .)
+    SET             reduce using rule 15 (natural_stmt -> SET ID TO expr .)
+    DONE            reduce using rule 15 (natural_stmt -> SET ID TO expr .)
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+
+state 60
+
+    (12) if_stmt -> IF expr BEGIN stmt_list DONE .
+    (13) if_stmt -> IF expr BEGIN stmt_list DONE . ELSE BEGIN stmt_list DONE
+
+    MEK             reduce using rule 12 (if_stmt -> IF expr BEGIN stmt_list DONE .)
+    FLING           reduce using rule 12 (if_stmt -> IF expr BEGIN stmt_list DONE .)
+    IF              reduce using rule 12 (if_stmt -> IF expr BEGIN stmt_list DONE .)
+    FOR             reduce using rule 12 (if_stmt -> IF expr BEGIN stmt_list DONE .)
+    SET             reduce using rule 12 (if_stmt -> IF expr BEGIN stmt_list DONE .)
+    DONE            reduce using rule 12 (if_stmt -> IF expr BEGIN stmt_list DONE .)
+    ELSE            shift and go to state 62
+
+
+state 61
+
+    (14) for_loop -> FOR ID EQ expr TO . expr BEGIN stmt_list DONE
+    (16) expr -> . expr PLUS expr
+    (17) expr -> . expr MINUS expr
+    (18) expr -> . expr MUL expr
+    (19) expr -> . expr DIV expr
+    (20) expr -> . expr GT expr
+    (21) expr -> . expr LT expr
+    (22) expr -> . expr GE expr
+    (23) expr -> . expr LE expr
+    (24) expr -> . expr EQEQ expr
+    (25) expr -> . expr NEQ expr
+    (26) expr -> . LPAREN expr RPAREN
+    (27) expr -> . NUMBER
+    (28) expr -> . STRING
+    (29) expr -> . ID
+
+    LPAREN          shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              shift and go to state 23
+
+    expr                           shift and go to state 63
+
+state 62
+
+    (13) if_stmt -> IF expr BEGIN stmt_list DONE ELSE . BEGIN stmt_list DONE
+
+    BEGIN           shift and go to state 64
+
+
+state 63
+
+    (14) for_loop -> FOR ID EQ expr TO expr . BEGIN stmt_list DONE
+    (16) expr -> expr . PLUS expr
+    (17) expr -> expr . MINUS expr
+    (18) expr -> expr . MUL expr
+    (19) expr -> expr . DIV expr
+    (20) expr -> expr . GT expr
+    (21) expr -> expr . LT expr
+    (22) expr -> expr . GE expr
+    (23) expr -> expr . LE expr
+    (24) expr -> expr . EQEQ expr
+    (25) expr -> expr . NEQ expr
+
+    BEGIN           shift and go to state 65
+    PLUS            shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    DIV             shift and go to state 33
+    GT              shift and go to state 34
+    LT              shift and go to state 35
+    GE              shift and go to state 36
+    LE              shift and go to state 37
+    EQEQ            shift and go to state 38
+    NEQ             shift and go to state 39
+
+
+state 64
+
+    (13) if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN . stmt_list DONE
+    (2) stmt_list -> . stmt stmt_list
+    (3) stmt_list -> .
+    (4) stmt -> . assignment
+    (5) stmt -> . print_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . for_loop
+    (8) stmt -> . natural_stmt
+    (9) assignment -> . MEK ID EQ expr
+    (10) print_stmt -> . FLING LPAREN STRING RPAREN
+    (11) print_stmt -> . FLING LPAREN expr RPAREN
+    (12) if_stmt -> . IF expr BEGIN stmt_list DONE
+    (13) if_stmt -> . IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE
+    (14) for_loop -> . FOR ID EQ expr TO expr BEGIN stmt_list DONE
+    (15) natural_stmt -> . SET ID TO expr
+
+    DONE            reduce using rule 3 (stmt_list -> .)
+    MEK             shift and go to state 10
+    FLING           shift and go to state 11
+    IF              shift and go to state 12
+    FOR             shift and go to state 13
+    SET             shift and go to state 14
+
+    stmt_list                      shift and go to state 66
+    stmt                           shift and go to state 4
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    for_loop                       shift and go to state 8
+    natural_stmt                   shift and go to state 9
+
+state 65
+
+    (14) for_loop -> FOR ID EQ expr TO expr BEGIN . stmt_list DONE
+    (2) stmt_list -> . stmt stmt_list
+    (3) stmt_list -> .
+    (4) stmt -> . assignment
+    (5) stmt -> . print_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . for_loop
+    (8) stmt -> . natural_stmt
+    (9) assignment -> . MEK ID EQ expr
+    (10) print_stmt -> . FLING LPAREN STRING RPAREN
+    (11) print_stmt -> . FLING LPAREN expr RPAREN
+    (12) if_stmt -> . IF expr BEGIN stmt_list DONE
+    (13) if_stmt -> . IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE
+    (14) for_loop -> . FOR ID EQ expr TO expr BEGIN stmt_list DONE
+    (15) natural_stmt -> . SET ID TO expr
+
+    DONE            reduce using rule 3 (stmt_list -> .)
+    MEK             shift and go to state 10
+    FLING           shift and go to state 11
+    IF              shift and go to state 12
+    FOR             shift and go to state 13
+    SET             shift and go to state 14
+
+    stmt_list                      shift and go to state 67
+    stmt                           shift and go to state 4
+    assignment                     shift and go to state 5
+    print_stmt                     shift and go to state 6
+    if_stmt                        shift and go to state 7
+    for_loop                       shift and go to state 8
+    natural_stmt                   shift and go to state 9
+
+state 66
+
+    (13) if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list . DONE
+
+    DONE            shift and go to state 68
+
+
+state 67
+
+    (14) for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list . DONE
+
+    DONE            shift and go to state 69
+
+
+state 68
+
+    (13) if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE .
+
+    MEK             reduce using rule 13 (if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE .)
+    FLING           reduce using rule 13 (if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE .)
+    IF              reduce using rule 13 (if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE .)
+    FOR             reduce using rule 13 (if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE .)
+    SET             reduce using rule 13 (if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE .)
+    DONE            reduce using rule 13 (if_stmt -> IF expr BEGIN stmt_list DONE ELSE BEGIN stmt_list DONE .)
+
+
+state 69
+
+    (14) for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list DONE .
+
+    MEK             reduce using rule 14 (for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list DONE .)
+    FLING           reduce using rule 14 (for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list DONE .)
+    IF              reduce using rule 14 (for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list DONE .)
+    FOR             reduce using rule 14 (for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list DONE .)
+    SET             reduce using rule 14 (for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list DONE .)
+    DONE            reduce using rule 14 (for_loop -> FOR ID EQ expr TO expr BEGIN stmt_list DONE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for RPAREN in state 27 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 47 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 47 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 47 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 47 resolved as shift
+WARNING: shift/reduce conflict for GT in state 47 resolved as shift
+WARNING: shift/reduce conflict for LT in state 47 resolved as shift
+WARNING: shift/reduce conflict for GE in state 47 resolved as shift
+WARNING: shift/reduce conflict for LE in state 47 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 47 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 47 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 48 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 48 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 48 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 48 resolved as shift
+WARNING: shift/reduce conflict for GT in state 48 resolved as shift
+WARNING: shift/reduce conflict for LT in state 48 resolved as shift
+WARNING: shift/reduce conflict for GE in state 48 resolved as shift
+WARNING: shift/reduce conflict for LE in state 48 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 48 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 48 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 49 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 49 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 49 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 49 resolved as shift
+WARNING: shift/reduce conflict for GT in state 49 resolved as shift
+WARNING: shift/reduce conflict for LT in state 49 resolved as shift
+WARNING: shift/reduce conflict for GE in state 49 resolved as shift
+WARNING: shift/reduce conflict for LE in state 49 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 49 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 49 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 50 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 50 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 50 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 50 resolved as shift
+WARNING: shift/reduce conflict for GT in state 50 resolved as shift
+WARNING: shift/reduce conflict for LT in state 50 resolved as shift
+WARNING: shift/reduce conflict for GE in state 50 resolved as shift
+WARNING: shift/reduce conflict for LE in state 50 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 50 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 50 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 51 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 51 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 51 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 51 resolved as shift
+WARNING: shift/reduce conflict for GT in state 51 resolved as shift
+WARNING: shift/reduce conflict for LT in state 51 resolved as shift
+WARNING: shift/reduce conflict for GE in state 51 resolved as shift
+WARNING: shift/reduce conflict for LE in state 51 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 51 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 51 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 52 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 52 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 52 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 52 resolved as shift
+WARNING: shift/reduce conflict for GT in state 52 resolved as shift
+WARNING: shift/reduce conflict for LT in state 52 resolved as shift
+WARNING: shift/reduce conflict for GE in state 52 resolved as shift
+WARNING: shift/reduce conflict for LE in state 52 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 52 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 52 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 53 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 53 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 53 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 53 resolved as shift
+WARNING: shift/reduce conflict for GT in state 53 resolved as shift
+WARNING: shift/reduce conflict for LT in state 53 resolved as shift
+WARNING: shift/reduce conflict for GE in state 53 resolved as shift
+WARNING: shift/reduce conflict for LE in state 53 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 53 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 53 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 54 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 54 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 54 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 54 resolved as shift
+WARNING: shift/reduce conflict for GT in state 54 resolved as shift
+WARNING: shift/reduce conflict for LT in state 54 resolved as shift
+WARNING: shift/reduce conflict for GE in state 54 resolved as shift
+WARNING: shift/reduce conflict for LE in state 54 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 54 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 54 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 55 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 55 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 55 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 55 resolved as shift
+WARNING: shift/reduce conflict for GT in state 55 resolved as shift
+WARNING: shift/reduce conflict for LT in state 55 resolved as shift
+WARNING: shift/reduce conflict for GE in state 55 resolved as shift
+WARNING: shift/reduce conflict for LE in state 55 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 55 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 55 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 56 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 56 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 56 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 56 resolved as shift
+WARNING: shift/reduce conflict for GT in state 56 resolved as shift
+WARNING: shift/reduce conflict for LT in state 56 resolved as shift
+WARNING: shift/reduce conflict for GE in state 56 resolved as shift
+WARNING: shift/reduce conflict for LE in state 56 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 56 resolved as shift
+WARNING: shift/reduce conflict for NEQ in state 56 resolved as shift

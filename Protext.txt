@@ -1,0 +1,19 @@
+begin
+    mek x = 5
+    mek y = 3
+    fling("Initial values")
+    fling(x + y)
+
+    if x > y begin
+        fling("x is greater")
+    done else begin
+        fling("y is greater or equal")
+    done
+
+    for i = 1 to 3 begin
+        fling(i)
+    done
+
+    set z to x * y
+    fling(z)
+done
