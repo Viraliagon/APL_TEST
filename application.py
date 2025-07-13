@@ -248,7 +248,7 @@ def index():
             semanticAnalyzer.reset_scope()
             simplipyja_parser.parser.parse(code)
 
-            print("\\nFinal Variables:")
+            print("\nFinal Variables:")
             for var, val in semanticAnalyzer.symbol_table.items():
                 print(f"{var} = {val}")
 
