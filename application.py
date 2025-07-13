@@ -13,7 +13,7 @@ except ImportError:
 
 app = Flask(__name__)
 
-HTML_TEMPLATE = r"""
+HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
